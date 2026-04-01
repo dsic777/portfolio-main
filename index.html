@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Portfolio - 전산개발자의 귀환</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { font-size: 10px; }
+
+    body {
+      font-family: 'Segoe UI', 'Noto Sans KR', sans-serif;
+      background: #0f172a;
+      color: #e2e8f0;
+      min-height: 100vh;
+      font-size: 12px;
+    }
+
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 50%, #0f172a 100%);
+      padding: 60px 20px 50px;
+      text-align: center;
+      border-bottom: 1px solid #1e3a5f;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(ellipse at center, rgba(59,130,246,0.08) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .badge {
+      display: inline-block;
+      background: rgba(59,130,246,0.25);
+      border: 2px solid rgba(59,130,246,0.7);
+      color: #93c5fd;
+      padding: 10px 28px;
+      border-radius: 20px;
+      font-size: 1.2rem;
+      font-weight: 700;
+      letter-spacing: 3px;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 {
+      font-size: 3.4rem;
+      font-weight: 700;
+      color: #f1f5f9;
+      margin-bottom: 8px;
+      letter-spacing: -0.5px;
+    }
+    .hero h1 span { color: #3b82f6; }
+
+    .hero .subtitle {
+      font-size: 1.7rem;
+      color: #fbbf24;
+      font-weight: 600;
+      margin-bottom: 24px;
+    }
+
+    .hero-desc {
+      max-width: 1200px;
+      margin: 0 auto 30px;
+      font-size: 1.35rem;
+      color: #cbd5e1;
+      line-height: 1.8;
+    }
+
+    .career-highlights {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      flex-wrap: wrap;
+      margin-bottom: 30px;
+    }
+    .highlight-item {
+      text-align: center;
+    }
+    .highlight-item .num {
+      font-size: 2.6rem;
+      font-weight: 700;
+      color: #38bdf8;
+      line-height: 1;
+    }
+    .highlight-item .label {
+      font-size: 1.05rem;
+      color: #e2e8f0;
+      margin-top: 6px;
+    }
+
+    .contact-info {
+      margin-top: 28px;
+      padding-top: 24px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+    }
+    .contact-name {
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: #ffffff;
+      letter-spacing: 0.5em;
+      margin-bottom: 12px;
+    }
+    .contact-link {
+      display: inline-block;
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin: 6px 20px;
+      transition: color 0.2s;
+    }
+    .contact-link:hover { color: #93c5fd; }
+
+    /* Skills */
+    .skills-section {
+      background: #0f172a;
+      padding: 40px 40px;
+      border-bottom: 1px solid #1e293b;
+    }
+    .skills-section h2 {
+      text-align: center;
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: #f1f5f9;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+    }
+    .skills-list {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 14px;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+    .skills-row {
+      display: flex;
+      flex-wrap: nowrap;
+      justify-content: center;
+      gap: 12px;
+    }
+    .skill-tag {
+      background: #1e3a5f;
+      border: 1px solid #3b82f6;
+      color: #e2e8f0;
+      padding: 10px 22px;
+      border-radius: 6px;
+      font-size: 1.15rem;
+      transition: all 0.2s;
+    }
+    .skill-tag:hover {
+      background: #3b82f6;
+      color: #ffffff;
+    }
+
+    /* Projects */
+    .projects-section {
+      padding: 50px 40px;
+      max-width: 1600px;
+      margin: 0 auto;
+    }
+    .section-title {
+      text-align: center;
+      font-size: 2rem;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 10px;
+      letter-spacing: 2px;
+    }
+    .section-sub {
+      text-align: center;
+      color: #94a3b8;
+      font-size: 1.1rem;
+      margin-bottom: 40px;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+    @media (max-width: 1000px) {
+      .projects-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 600px) {
+      .projects-grid { grid-template-columns: 1fr; }
+    }
+
+    .project-card {
+      background: #1e293b;
+      border: 1px solid #334155;
+      border-radius: 12px;
+      padding: 24px;
+      cursor: pointer;
+      transition: all 0.25s;
+      position: relative;
+      overflow: hidden;
+      text-decoration: none;
+      display: block;
+      color: inherit;
+    }
+    .project-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: var(--accent, #3b82f6);
+      transform: scaleX(0);
+      transition: transform 0.3s;
+      transform-origin: left;
+    }
+    .project-card:hover {
+      border-color: var(--accent, #3b82f6);
+      transform: translateY(-4px);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.3);
+    }
+    .project-card:hover::before { transform: scaleX(1); }
+
+    .card-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 14px;
+    }
+    .card-icon {
+      width: 46px;
+      height: 46px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      background: var(--icon-bg, rgba(59,130,246,0.15));
+      flex-shrink: 0;
+    }
+    .card-title {
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: #f1f5f9;
+    }
+    .card-type {
+      font-size: 0.95rem;
+      color: #94a3b8;
+      margin-top: 2px;
+    }
+
+    .card-desc {
+      font-size: 1rem;
+      color: #e2e8f0;
+      line-height: 1.7;
+      margin-bottom: 16px;
+    }
+
+    .card-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 16px;
+    }
+    .card-tag {
+      background: rgba(59,130,246,0.1);
+      border: 1px solid #3b5a8a;
+      color: #93c5fd;
+      padding: 4px 12px;
+      border-radius: 4px;
+      font-size: 0.9rem;
+    }
+
+    .card-footer {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 12px;
+      margin-top: 12px;
+      padding-top: 12px;
+      border-top: 1px solid #2d3f55;
+    }
+    .card-github {
+      color: #f87171;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: color 0.2s;
+    }
+    .card-github:hover { color: #fca5a5; }
+    .card-status {
+      font-size: 0.95rem;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .status-dot {
+      width: 7px; height: 7px;
+      border-radius: 50%;
+      background: #22c55e;
+      box-shadow: 0 0 6px #22c55e;
+      animation: pulse 2s infinite;
+    }
+    .status-dot.offline { background: #475569; box-shadow: none; animation: none; }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.5; }
+    }
+
+    .card-arrow {
+      color: #475569;
+      font-size: 1rem;
+      transition: all 0.2s;
+    }
+    .project-card:hover .card-arrow {
+      color: var(--accent, #3b82f6);
+      transform: translateX(4px);
+    }
+
+    /* Coming soon card */
+    .project-card.coming-soon {
+      opacity: 0.6;
+      cursor: default;
+    }
+    .project-card.coming-soon:hover {
+      transform: none;
+      border-color: #334155;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 30px;
+      color: #334155;
+      font-size: 1rem;
+      border-top: 1px solid #1e293b;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="badge">PORTFOLIO 2026</div>
+    <h1>전산개발자의 <span>귀환</span></h1>
+    <p class="subtitle">20년 ERP 전문가와 최신의 AI기술이 만났습니다.</p>
+    <p class="hero-desc">
+      골프장 ERP 전문가로 20년간 전국 20여 개 골프장 시스템을 개발·운영하였으며,<br>
+      2025년 11월부터 Python 풀스택 개발자로 커리어를 시작했습니다.<br>
+      이제부터 여러분의 모든 상상은 최신의 AI기술이 활용된 프로그램으로 탄생됩니다.
+    </p>
+    <div class="career-highlights">
+      <div class="highlight-item">
+        <div class="num">20+</div>
+        <div class="label">골프장 프로젝트</div>
+      </div>
+      <div class="highlight-item">
+        <div class="num">20년</div>
+        <div class="label">ERP 개발 경력</div>
+      </div>
+      <div class="highlight-item">
+        <div class="num">178일</div>
+        <div class="label">AI 부트캠프 수료</div>
+      </div>
+      <div class="highlight-item">
+        <div class="num">4+</div>
+        <div class="label">포트폴리오 프로젝트</div>
+      </div>
+    </div>
+    <div class="contact-info">
+      <div class="contact-name">유동주</div>
+      <a href="tel:010-5624-4376" class="contact-link">📞 010-5624-4376</a>
+      <a href="mailto:dsic777@gmail.com" class="contact-link">✉ dsic777@gmail.com</a>
+      <a href="https://github.com/dsic777" target="_blank" class="contact-link">🐙 github.com/dsic777</a>
+    </div>
+  </section>
+
+  <!-- Skills -->
+  <section class="skills-section">
+    <h2>Tech Stack</h2>
+    <div class="skills-list">
+      <div class="skills-row">
+        <span class="skill-tag">Python</span>
+        <span class="skill-tag">Django</span>
+        <span class="skill-tag">FastAPI</span>
+        <span class="skill-tag">React</span>
+        <span class="skill-tag">Docker</span>
+        <span class="skill-tag">Nginx</span>
+        <span class="skill-tag">AWS EC2</span>
+        <span class="skill-tag">PostgreSQL</span>
+      </div>
+      <div class="skills-row">
+        <span class="skill-tag">COBOL</span>
+        <span class="skill-tag">VisualBasic</span>
+        <span class="skill-tag">PowerBuilder</span>
+        <span class="skill-tag">Oracle</span>
+        <span class="skill-tag">SQL Server</span>
+        <span class="skill-tag">MySQL</span>
+        <span class="skill-tag">MongoDB</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section class="projects-section">
+    <h2 class="section-title">Projects</h2>
+    <p class="section-sub">클릭하면 새 창에서 프로젝트가 실행됩니다</p>
+
+    <div class="projects-grid">
+
+      <!-- 1. HumanRM 관리자 -->
+      <div class="project-card" onclick="window.open('https://dsic.duckdns.org/human/dashboard/','_blank')"
+         style="--accent:#3b82f6; --icon-bg:rgba(59,130,246,0.15); cursor:pointer;">
+        <div class="card-header">
+          <div class="card-icon">👔</div>
+          <div>
+            <div class="card-title">HumanRM<br>관리자</div>
+            <div class="card-type">인력 관리 시스템</div>
+          </div>
+        </div>
+        <p class="card-desc">
+          Django 기반 인력 관리 대시보드. 직원 정보, 근태, 이메일 알림 기능을 포함합니다.
+        </p>
+        <div class="card-tags">
+          <span class="card-tag">Django</span>
+          <span class="card-tag">PostgreSQL</span>
+          <span class="card-tag">Docker</span>
+        </div>
+        <div class="card-footer">
+          <span class="card-status"><span class="status-dot"></span><span style="color:#22c55e;">운영중</span></span>
+          <span class="card-github" onclick="event.stopPropagation();window.open('https://github.com/dsic777/HumanRM','_blank');">🐙 GitHub</span>
+        </div>
+      </div>
+
+      <!-- 2. HumanRM 노무자 -->
+      <div class="project-card" onclick="window.open('https://dsic.duckdns.org/mobile','_blank')"
+         style="--accent:#38bdf8; --icon-bg:rgba(56,189,248,0.15); cursor:pointer;">
+        <div class="card-header">
+          <div class="card-icon">👷</div>
+          <div>
+            <div class="card-title">HumanRM<br>노무자</div>
+            <div class="card-type">노무자 전용 화면</div>
+          </div>
+        </div>
+        <p class="card-desc">
+          노무자가 직접 사용하는 React 기반 모바일 최적화 화면. 배치 수당 근무지위치정보를 제공합니다.
+        </p>
+        <div class="card-tags">
+          <span class="card-tag">React</span>
+          <span class="card-tag">Django API</span>
+          <span class="card-tag">Mobile</span>
+        </div>
+        <div class="card-footer">
+          <span class="card-status"><span class="status-dot"></span><span style="color:#22c55e;">운영중</span></span>
+          <span class="card-github" onclick="event.stopPropagation();window.open('https://github.com/dsic777/HumanRM','_blank');">🐙 GitHub</span>
+        </div>
+      </div>
+
+      <!-- 3. Jewelry 매장관리 -->
+      <div class="project-card" onclick="window.open('https://dsic.duckdns.org/humanrm/jewelry/mockup.html','_blank')"
+         style="--accent:#f59e0b; --icon-bg:rgba(245,158,11,0.15); cursor:pointer;">
+        <div class="card-header">
+          <div class="card-icon">🏭</div>
+          <div>
+            <div class="card-title">Jewelry<br>매장관리</div>
+            <div class="card-type">매장 관리 시스템</div>
+          </div>
+        </div>
+        <p class="card-desc">
+          귀금속 매장 관리자용 대시보드. POS, 매출현황, 고객관리, 통계화면을 포함합니다.
+        </p>
+        <div class="card-tags">
+          <span class="card-tag">HTML/CSS</span>
+          <span class="card-tag">JavaScript</span>
+          <span class="card-tag">Mockup</span>
+        </div>
+        <div class="card-footer">
+          <span class="card-status"><span class="status-dot"></span><span style="color:#22c55e;">운영중</span></span>
+        </div>
+      </div>
+
+      <!-- 4. Jewelry 고객전용 -->
+      <div class="project-card" onclick="window.open('https://dsic.duckdns.org/humanrm/jewelry/mobile.html','_blank')"
+         style="--accent:#a855f7; --icon-bg:rgba(168,85,247,0.15); cursor:pointer;">
+        <div class="card-header">
+          <div class="card-icon">💎</div>
+          <div>
+            <div class="card-title">Jewelry<br>고객전용</div>
+            <div class="card-type">고객 전용 화면</div>
+          </div>
+        </div>
+        <p class="card-desc">
+          귀금속 고객용 화면. 고객정보, 구매정보, 포인트 조회 등 고객 서비스 기능을 제공합니다.
+        </p>
+        <div class="card-tags">
+          <span class="card-tag">React</span>
+          <span class="card-tag">JavaScript</span>
+          <span class="card-tag">Mobile</span>
+        </div>
+        <div class="card-footer">
+          <span class="card-status"><span class="status-dot"></span><span style="color:#22c55e;">운영중</span></span>
+        </div>
+      </div>
+
+      <!-- 5. 말벗 윈도우 -->
+      <div class="project-card" onclick="window.open('https://malbeot.duckdns.org/','_blank')"
+         style="--accent:#10b981; --icon-bg:rgba(16,185,129,0.15); cursor:pointer;">
+        <div class="card-header">
+          <div class="card-icon">🖥️</div>
+          <div>
+            <div class="card-title">말벗 (PC)</div>
+            <div class="card-type">AI 말동무 - 윈도우</div>
+          </div>
+        </div>
+        <p class="card-desc">
+          AI 기반 대화 서비스 PC 버전. FastAPI 풀스택으로 구성된 웹 애플리케이션입니다.
+        </p>
+        <div class="card-tags">
+          <span class="card-tag">FastAPI</span>
+          <span class="card-tag">Open AI</span>
+          <span class="card-tag">PostgreSQL</span>
+        </div>
+        <div class="card-footer">
+          <span class="card-status"><span class="status-dot"></span><span style="color:#22c55e;">운영중</span></span>
+          <span class="card-github" onclick="event.stopPropagation();window.open('https://github.com/dsic777/malbeot-diary','_blank');">🐙 GitHub</span>
+        </div>
+      </div>
+
+      <!-- 6. 말벗 모바일 -->
+      <div class="project-card" onclick="window.open('https://mymalbeot.duckdns.org','_blank')"
+         style="--accent:#34d399; --icon-bg:rgba(52,211,153,0.15); cursor:pointer;">
+        <div class="card-header">
+          <div class="card-icon">📱</div>
+          <div>
+            <div class="card-title">말벗 (모바일)</div>
+            <div class="card-type">AI 말동무 - 모바일</div>
+          </div>
+        </div>
+        <p class="card-desc">
+          AI 기반 대화 서비스 모바일 버전. 터치 최적화된 UI로 언제 어디서나 사용 가능합니다.
+        </p>
+        <div class="card-tags">
+          <span class="card-tag">React</span>
+          <span class="card-tag">FastAPI</span>
+          <span class="card-tag">Mobile</span>
+        </div>
+        <div class="card-footer">
+          <span class="card-status"><span class="status-dot"></span><span style="color:#22c55e;">운영중</span></span>
+          <span class="card-github" onclick="event.stopPropagation();window.open('https://github.com/dsic777/malbeot-diary2','_blank');">🐙 GitHub</span>
+        </div>
+      </div>
+
+      <!-- 7. MyStock -->
+      <div class="project-card"
+           style="--accent:#64748b; --icon-bg:rgba(100,116,139,0.15); cursor:default;">
+        <div class="card-header">
+          <div class="card-icon">📈</div>
+          <div>
+            <div class="card-title">MyStock</div>
+            <div class="card-type">주식 관리 시스템</div>
+          </div>
+        </div>
+        <p class="card-desc">
+          투자시 손실의 가장 큰 요인은 매도시점을 망설이기 때문으로 미리 기준을 설정하여 AI의 도움을 받아 매도시점을 알려줍니다.
+        </p>
+        <div class="card-tags">
+          <span class="card-tag">Python</span>
+          <span class="card-tag">React</span>
+          <span class="card-tag">FastAPI</span>
+          <span class="card-tag">Claude AI</span>
+        </div>
+        <div class="card-footer">
+          <span class="card-status"><span class="status-dot offline"></span><span style="color:#94a3b8;">운영중(비공개)</span></span>
+          <span class="card-github" onclick="event.stopPropagation();window.open('https://github.com/dsic777/myStodk','_blank');">🐙 GitHub</span>
+        </div>
+      </div>
+
+      <!-- 8. Coming Soon -->
+      <div class="project-card coming-soon"
+           style="--accent:#334155; --icon-bg:rgba(51,65,85,0.15); cursor:default;">
+        <div class="card-header">
+          <div class="card-icon">➕</div>
+          <div>
+            <div class="card-title">Next Project</div>
+            <div class="card-type">추가 예정</div>
+          </div>
+        </div>
+        <p class="card-desc">
+          새로운 프로젝트가 추가될 예정입니다.
+        </p>
+        <div class="card-tags">
+          <span class="card-tag">TBD</span>
+        </div>
+        <div class="card-footer">
+          <span class="card-status"><span class="status-dot offline"></span><span style="color:#94a3b8;">예정</span></span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <footer>
+    © 2026 dsic777@gmail.com · Built with Python, Django, FastAPI, React, Docker
+  </footer>
+
+</body>
+</html>
