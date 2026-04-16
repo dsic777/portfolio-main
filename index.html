@@ -438,7 +438,12 @@
 
       <!-- 2. Jewelry 고객전용 -->
       <div class="project-card" onclick="window.open('https://dsic.duckdns.org/jewelpro-app/customer/?b=1','_blank')"
-        style="--accent:#a855f7; --icon-bg:rgba(168,85,247,0.15); cursor:pointer;">
+        style="--accent:#a855f7; --icon-bg:rgba(168,85,247,0.15); cursor:pointer; position:relative;">
+        <!-- QR코드 우측 상단 -->
+        <div onclick="event.stopPropagation();" style="position:absolute; top:14px; right:14px; background:#fff; border-radius:6px; padding:3px;">
+          <img src="https://api.qrserver.com/v1/create-qr-code/?size=70x70&data=https://dsic.duckdns.org/jewelpro-app/customer/?b=1"
+               alt="QR" width="70" height="70" style="display:block;" />
+        </div>
         <div class="card-header">
           <div class="card-icon">💎</div>
           <div>
