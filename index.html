@@ -1,12 +1,20 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Portfolio - 전산개발자의 귀환</title>
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    html { font-size: 10px; }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      font-size: 10px;
+    }
 
     body {
       font-family: 'Segoe UI', 'Noto Sans KR', sans-serif;
@@ -25,6 +33,7 @@
       position: relative;
       overflow: hidden;
     }
+
     .hero::before {
       content: '';
       position: absolute;
@@ -32,14 +41,14 @@
       left: -50%;
       width: 200%;
       height: 200%;
-      background: radial-gradient(ellipse at center, rgba(59,130,246,0.08) 0%, transparent 60%);
+      background: radial-gradient(ellipse at center, rgba(59, 130, 246, 0.08) 0%, transparent 60%);
       pointer-events: none;
     }
 
     .badge {
       display: inline-block;
-      background: rgba(59,130,246,0.25);
-      border: 2px solid rgba(59,130,246,0.7);
+      background: rgba(59, 130, 246, 0.25);
+      border: 2px solid rgba(59, 130, 246, 0.7);
       color: #93c5fd;
       padding: 10px 28px;
       border-radius: 20px;
@@ -56,7 +65,10 @@
       margin-bottom: 8px;
       letter-spacing: -0.5px;
     }
-    .hero h1 span { color: #3b82f6; }
+
+    .hero h1 span {
+      color: #3b82f6;
+    }
 
     .hero .subtitle {
       font-size: 1.7rem;
@@ -80,17 +92,20 @@
       flex-wrap: wrap;
       margin-bottom: 30px;
     }
+
     .highlight-item {
       text-align: center;
     }
+
     .highlight-item .num {
       font-size: 3.0rem;
       font-weight: 700;
       color: #38bdf8;
       line-height: 1;
     }
+
     .highlight-item .label {
-      font-size: 1.5rem;
+      font-size: 1.3rem;
       color: #e2e8f0;
       margin-top: 6px;
     }
@@ -98,8 +113,9 @@
     .contact-info {
       margin-top: 28px;
       padding-top: 24px;
-      border-top: 1px solid rgba(255,255,255,0.1);
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
     }
+
     .contact-name {
       font-size: 2.2rem;
       font-weight: 700;
@@ -107,6 +123,7 @@
       letter-spacing: 0.5em;
       margin-bottom: 12px;
     }
+
     .contact-link {
       display: inline-block;
       color: #ffffff;
@@ -116,7 +133,10 @@
       margin: 6px 20px;
       transition: color 0.2s;
     }
-    .contact-link:hover { color: #93c5fd; }
+
+    .contact-link:hover {
+      color: #93c5fd;
+    }
 
     /* Skills */
     .skills-section {
@@ -124,6 +144,7 @@
       padding: 40px 40px;
       border-bottom: 1px solid #1e293b;
     }
+
     .skills-section h2 {
       text-align: center;
       font-size: 1.4rem;
@@ -133,6 +154,7 @@
       text-transform: uppercase;
       margin-bottom: 24px;
     }
+
     .skills-list {
       display: flex;
       flex-direction: column;
@@ -141,12 +163,14 @@
       max-width: 1400px;
       margin: 0 auto;
     }
+
     .skills-row {
       display: flex;
       flex-wrap: nowrap;
       justify-content: center;
       gap: 12px;
     }
+
     .skill-tag {
       background: #1e3a5f;
       border: 1px solid #3b82f6;
@@ -156,6 +180,7 @@
       font-size: 1.15rem;
       transition: all 0.2s;
     }
+
     .skill-tag:hover {
       background: #3b82f6;
       color: #ffffff;
@@ -167,6 +192,7 @@
       max-width: 1600px;
       margin: 0 auto;
     }
+
     .section-title {
       text-align: center;
       font-size: 2rem;
@@ -175,6 +201,7 @@
       margin-bottom: 10px;
       letter-spacing: 2px;
     }
+
     .section-sub {
       text-align: center;
       color: #94a3b8;
@@ -187,11 +214,17 @@
       grid-template-columns: repeat(4, 1fr);
       gap: 20px;
     }
+
     @media (max-width: 1000px) {
-      .projects-grid { grid-template-columns: repeat(2, 1fr); }
+      .projects-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
     }
+
     @media (max-width: 600px) {
-      .projects-grid { grid-template-columns: 1fr; }
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
     }
 
     .project-card {
@@ -207,22 +240,29 @@
       display: block;
       color: inherit;
     }
+
     .project-card::before {
       content: '';
       position: absolute;
-      top: 0; left: 0; right: 0;
+      top: 0;
+      left: 0;
+      right: 0;
       height: 3px;
       background: var(--accent, #3b82f6);
       transform: scaleX(0);
       transition: transform 0.3s;
       transform-origin: left;
     }
+
     .project-card:hover {
       border-color: var(--accent, #3b82f6);
       transform: translateY(-4px);
-      box-shadow: 0 12px 30px rgba(0,0,0,0.3);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
     }
-    .project-card:hover::before { transform: scaleX(1); }
+
+    .project-card:hover::before {
+      transform: scaleX(1);
+    }
 
     .card-header {
       display: flex;
@@ -230,6 +270,7 @@
       gap: 14px;
       margin-bottom: 14px;
     }
+
     .card-icon {
       width: 46px;
       height: 46px;
@@ -238,14 +279,16 @@
       align-items: center;
       justify-content: center;
       font-size: 1.4rem;
-      background: var(--icon-bg, rgba(59,130,246,0.15));
+      background: var(--icon-bg, rgba(59, 130, 246, 0.15));
       flex-shrink: 0;
     }
+
     .card-title {
       font-size: 1.3rem;
       font-weight: 600;
       color: #f1f5f9;
     }
+
     .card-type {
       font-size: 0.95rem;
       color: #94a3b8;
@@ -253,7 +296,7 @@
     }
 
     .card-desc {
-      font-size: 1.5rem;
+      font-size: 1.3rem;
       color: #e2e8f0;
       line-height: 1.7;
       margin-bottom: 16px;
@@ -265,8 +308,9 @@
       gap: 6px;
       margin-bottom: 16px;
     }
+
     .card-tag {
-      background: rgba(59,130,246,0.1);
+      background: rgba(59, 130, 246, 0.1);
       border: 1px solid #3b5a8a;
       color: #93c5fd;
       padding: 4px 12px;
@@ -283,30 +327,50 @@
       padding-top: 12px;
       border-top: 1px solid #2d3f55;
     }
+
     .card-github {
       color: #f87171;
       font-size: 1rem;
       cursor: pointer;
       transition: color 0.2s;
     }
-    .card-github:hover { color: #fca5a5; }
+
+    .card-github:hover {
+      color: #fca5a5;
+    }
+
     .card-status {
       font-size: 0.95rem;
       display: flex;
       align-items: center;
       gap: 5px;
     }
+
     .status-dot {
-      width: 7px; height: 7px;
+      width: 7px;
+      height: 7px;
       border-radius: 50%;
       background: #22c55e;
       box-shadow: 0 0 6px #22c55e;
       animation: pulse 2s infinite;
     }
-    .status-dot.offline { background: #475569; box-shadow: none; animation: none; }
+
+    .status-dot.offline {
+      background: #475569;
+      box-shadow: none;
+      animation: none;
+    }
+
     @keyframes pulse {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0.5; }
+
+      0%,
+      100% {
+        opacity: 1;
+      }
+
+      50% {
+        opacity: 0.5;
+      }
     }
 
     .card-arrow {
@@ -314,6 +378,7 @@
       font-size: 1rem;
       transition: all 0.2s;
     }
+
     .project-card:hover .card-arrow {
       color: var(--accent, #3b82f6);
       transform: translateX(4px);
@@ -324,6 +389,7 @@
       opacity: 0.6;
       cursor: default;
     }
+
     .project-card.coming-soon:hover {
       transform: none;
       border-color: #334155;
@@ -339,13 +405,14 @@
     }
   </style>
 </head>
+
 <body>
 
   <!-- Hero -->
   <section class="hero">
     <div class="badge">PORTFOLIO 2026: 전산개발자의 귀환</div>
     <h1>20년의 관록, AI의 <span>날개를 달다</span></h1>
-    <p class="subtitle">"단순한 코딩을 넘어, 복잡한 실무를 이해하는 전문가"</p>
+    <p class="subtitle">"단순한 코딩을 넘어, 복잡한 실무를 경험으로 체득한 전문가"</p>
     <p class="hero-desc">
       지난 20년간 전국 20여 개 골프장의 ERP 시스템을 수주·개발·운영하며 비즈니스의 본질을 설계해 왔습니다.<br>
       이제 그 견고한 내공 위에 최신 Python 풀스택 기술과 AI 솔루션을 더해 새로운 커리어를 시작합니다.<br><br>
@@ -413,9 +480,10 @@
 
       <!-- 1. JewelPro 홍보 홈페이지 -->
       <div class="project-card" onclick="window.open('https://dsic.duckdns.org/jewelpro/','_blank')"
-           style="--accent:#c9a84c; --icon-bg:rgba(201,168,76,0.15); cursor:pointer;">
+        style="--accent:#c9a84c; --icon-bg:rgba(201,168,76,0.15); cursor:pointer;">
         <div class="card-header">
-          <div class="card-icon"><img src="https://dsic.duckdns.org/jewelpro-app/icon.svg" width="38" height="38" style="border-radius:7px;display:block;" alt="JewelPro"></div>
+          <div class="card-icon"><img src="https://dsic.duckdns.org/jewelpro-app/icon.svg" width="38" height="38"
+              style="border-radius:7px;display:block;" alt="JewelPro"></div>
           <div>
             <div class="card-title">JewelPro<br>홍보 홈페이지</div>
             <div class="card-type">SaaS 마케팅 사이트</div>
@@ -431,9 +499,11 @@
           <span class="card-tag">SaaS</span>
         </div>
         <div class="card-footer" style="flex-direction:column; align-items:flex-start; gap:6px;">
-          <span class="card-status"><span class="status-dot offline"></span><span style="color:#94a3b8;">개발중</span></span>
+          <span class="card-status"><span class="status-dot offline"></span><span
+              style="color:#94a3b8;">개발중</span></span>
           <div style="display:flex; gap:12px; margin-top:4px;">
-            <span onclick="event.stopPropagation();window.open('https://dsic.duckdns.org/jewelpro-app/operator/','_blank');"
+            <span
+              onclick="event.stopPropagation();window.open('https://dsic.duckdns.org/jewelpro-app/operator/','_blank');"
               style="font-size:0.8rem; color:#c9a84c; cursor:pointer; text-decoration:underline;">⚙️ 운영관리</span>
           </div>
         </div>
@@ -441,16 +511,17 @@
 
       <!-- 2. Jewelry 매장관리 -->
       <div class="project-card" onclick="window.open('https://dsic.duckdns.org/jewelpro-app/','_blank')"
-           style="--accent:#f59e0b; --icon-bg:rgba(245,158,11,0.15); cursor:pointer;">
+        style="--accent:#f59e0b; --icon-bg:rgba(245,158,11,0.15); cursor:pointer;">
         <div class="card-header">
-          <div class="card-icon"><img src="https://dsic.duckdns.org/jewelpro-app/icon.svg" width="38" height="38" style="border-radius:7px;display:block;" alt="JewelPro"></div>
+          <div class="card-icon"><img src="https://dsic.duckdns.org/jewelpro-app/icon.svg" width="38" height="38"
+              style="border-radius:7px;display:block;" alt="JewelPro"></div>
           <div>
             <div class="card-title">Jewelry<br>매장관리</div>
             <div class="card-type">매장 관리 시스템</div>
           </div>
         </div>
         <p class="card-desc">
-          AI가 영업을 이끌어 갑니다. 영업분석,판매기획,고객관리,매출증대 모든것을 이 안에 담았습니다. <br>주얼리 매장의 미래, JewelPro.
+          AI가 영업을 이끌어 갑니다. 영업분석,판매기획,<br>고객관리,매출증대 모든것을 이 안에 담았습니다.<br>주얼리 매장의 미래, JewelPro.
         </p>
         <div class="card-tags">
           <span class="card-tag">Django</span>
@@ -460,27 +531,32 @@
         </div>
         <div class="card-footer">
           <span class="card-status"><span class="status-dot"></span><span style="color:#22c55e;">운영중</span></span>
-          <span class="card-github" onclick="event.stopPropagation();window.open('https://github.com/dsic777/jewelpro','_blank');">🐙 GitHub</span>
+          <span class="card-github"
+            onclick="event.stopPropagation();window.open('https://github.com/dsic777/jewelpro','_blank');">🐙
+            GitHub</span>
         </div>
       </div>
 
       <!-- 3. Jewelry 고객전용 (모바일) -->
       <div class="project-card" onclick="window.open('https://dsic.duckdns.org/jewelpro-app/customer/?b=1','_blank')"
-           style="--accent:#a855f7; --icon-bg:rgba(168,85,247,0.15); cursor:pointer; position:relative;">
+        style="--accent:#a855f7; --icon-bg:rgba(168,85,247,0.15); cursor:pointer; position:relative;">
         <!-- QR코드 우측 상단 -->
-        <div onclick="event.stopPropagation();" style="position:absolute; top:14px; right:14px; background:#fff; border-radius:6px; padding:3px;">
-          <img src="https://api.qrserver.com/v1/create-qr-code/?size=70x70&data=https://dsic.duckdns.org/jewelpro-app/customer/?b=1"
-               alt="QR" width="70" height="70" style="display:block;" />
+        <div onclick="event.stopPropagation();"
+          style="position:absolute; top:14px; right:14px; background:#fff; border-radius:6px; padding:3px;">
+          <img
+            src="https://api.qrserver.com/v1/create-qr-code/?size=70x70&data=https://dsic.duckdns.org/jewelpro-app/customer/?b=1"
+            alt="QR" width="70" height="70" style="display:block;" />
         </div>
         <div class="card-header">
-          <div class="card-icon"><img src="https://dsic.duckdns.org/jewelpro-app/icon.svg" width="38" height="38" style="border-radius:7px;display:block;" alt="JewelPro"></div>
+          <div class="card-icon"><img src="https://dsic.duckdns.org/jewelpro-app/icon.svg" width="38" height="38"
+              style="border-radius:7px;display:block;" alt="JewelPro"></div>
           <div>
             <div class="card-title">Jewelry<br>고객전용</div>
             <div class="card-type">고객 전용 모바일</div>
           </div>
         </div>
         <p class="card-desc">
-          귀금속 고객용 모바일 화면. 고객정보, 구매이력, <br>포인트 조회, 기념일 관리 등 고객 서비스 기능을 제공합니다.
+          귀금속 고객용 모바일 화면. 고객정보, 구매이력, <br>포인트 조회, 기념일 관리 등 고객 서비스 기능을 <br>제공합니다.
         </p>
         <div class="card-tags">
           <span class="card-tag">Django</span>
@@ -494,8 +570,7 @@
       </div>
 
       <!-- 4. MyStock -->
-      <div class="project-card"
-           style="--accent:#64748b; --icon-bg:rgba(100,116,139,0.15); cursor:default;">
+      <div class="project-card" style="--accent:#64748b; --icon-bg:rgba(100,116,139,0.15); cursor:default;">
         <div class="card-header">
           <div class="card-icon">📈</div>
           <div>
@@ -504,7 +579,7 @@
           </div>
         </div>
         <p class="card-desc">
-          투자시 손실의 가장 큰 요인은 매도시점을 <br>망설이기 때문으로 미리 기준을 설정하여 <br>AI의 도움을 받아 매도시점을 알려줍니다.
+          투자시 손실의 가장 큰 요인은 매도시점을 망설이기 <br>때문으로 미리 기준을 설정하여 AI의 도움을 <br>받아 매도시점을 알려줍니다.
         </p>
         <div class="card-tags">
           <span class="card-tag">Python</span>
@@ -513,14 +588,17 @@
           <span class="card-tag">Claude AI</span>
         </div>
         <div class="card-footer">
-          <span class="card-status"><span class="status-dot offline"></span><span style="color:#94a3b8;">운영중(비공개)</span></span>
-          <span class="card-github" onclick="event.stopPropagation();window.open('https://github.com/dsic777/myStodk','_blank');">🐙 GitHub</span>
+          <span class="card-status"><span class="status-dot offline"></span><span
+              style="color:#94a3b8;">운영중(비공개)</span></span>
+          <span class="card-github"
+            onclick="event.stopPropagation();window.open('https://github.com/dsic777/myStodk','_blank');">🐙
+            GitHub</span>
         </div>
       </div>
 
       <!-- 5. 말벗 (Win) -->
       <div class="project-card" onclick="window.open('https://malbeot.duckdns.org/','_blank')"
-           style="--accent:#10b981; --icon-bg:rgba(16,185,129,0.15); cursor:pointer;">
+        style="--accent:#10b981; --icon-bg:rgba(16,185,129,0.15); cursor:pointer;">
         <div class="card-header">
           <div class="card-icon">🖥️</div>
           <div>
@@ -538,13 +616,15 @@
         </div>
         <div class="card-footer">
           <span class="card-status"><span class="status-dot"></span><span style="color:#22c55e;">운영중</span></span>
-          <span class="card-github" onclick="event.stopPropagation();window.open('https://github.com/dsic777/malbeot-diary','_blank');">🐙 GitHub</span>
+          <span class="card-github"
+            onclick="event.stopPropagation();window.open('https://github.com/dsic777/malbeot-diary','_blank');">🐙
+            GitHub</span>
         </div>
       </div>
 
       <!-- 6. 말벗 (모바일) -->
       <div class="project-card" onclick="window.open('https://mymalbeot.duckdns.org','_blank')"
-           style="--accent:#34d399; --icon-bg:rgba(52,211,153,0.15); cursor:pointer;">
+        style="--accent:#34d399; --icon-bg:rgba(52,211,153,0.15); cursor:pointer;">
         <div class="card-header">
           <div class="card-icon">📱</div>
           <div>
@@ -562,13 +642,14 @@
         </div>
         <div class="card-footer">
           <span class="card-status"><span class="status-dot"></span><span style="color:#22c55e;">운영중</span></span>
-          <span class="card-github" onclick="event.stopPropagation();window.open('https://github.com/dsic777/malbeot-diary2','_blank');">🐙 GitHub</span>
+          <span class="card-github"
+            onclick="event.stopPropagation();window.open('https://github.com/dsic777/malbeot-diary2','_blank');">🐙
+            GitHub</span>
         </div>
       </div>
 
       <!-- 7. 사장봇 (Win) -->
-      <div class="project-card"
-           style="--accent:#f43f5e; --icon-bg:rgba(244,63,94,0.15); cursor:default;">
+      <div class="project-card" style="--accent:#f43f5e; --icon-bg:rgba(244,63,94,0.15); cursor:default;">
         <div class="card-header">
           <div class="card-icon">🤖</div>
           <div>
@@ -585,13 +666,13 @@
           <span class="card-tag">Hackathon</span>
         </div>
         <div class="card-footer">
-          <span class="card-status"><span class="status-dot offline"></span><span style="color:#94a3b8;">개발예정</span></span>
+          <span class="card-status"><span class="status-dot offline"></span><span
+              style="color:#94a3b8;">개발예정</span></span>
         </div>
       </div>
 
       <!-- 8. 사장봇 (모바일) -->
-      <div class="project-card"
-           style="--accent:#fb7185; --icon-bg:rgba(251,113,133,0.15); cursor:default;">
+      <div class="project-card" style="--accent:#fb7185; --icon-bg:rgba(251,113,133,0.15); cursor:default;">
         <div class="card-header">
           <div class="card-icon">📲</div>
           <div>
@@ -609,7 +690,8 @@
           <span class="card-tag">Mobile</span>
         </div>
         <div class="card-footer">
-          <span class="card-status"><span class="status-dot offline"></span><span style="color:#94a3b8;">개발예정</span></span>
+          <span class="card-status"><span class="status-dot offline"></span><span
+              style="color:#94a3b8;">개발예정</span></span>
         </div>
       </div>
 
@@ -621,4 +703,5 @@
   </footer>
 
 </body>
+
 </html>
