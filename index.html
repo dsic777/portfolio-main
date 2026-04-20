@@ -570,7 +570,15 @@
       </div>
 
       <!-- 4. MyStock -->
-      <div class="project-card" style="--accent:#64748b; --icon-bg:rgba(100,116,139,0.15); cursor:default;">
+      <div class="project-card" onclick="window.open('https://dsic.duckdns.org/mystock/','_blank')"
+        style="--accent:#3b82f6; --icon-bg:rgba(59,130,246,0.15); cursor:pointer; position:relative;">
+        <!-- QR코드 우측 상단 -->
+        <div onclick="event.stopPropagation();"
+          style="position:absolute; top:14px; right:14px; background:#fff; border-radius:6px; padding:3px;">
+          <img
+            src="https://api.qrserver.com/v1/create-qr-code/?size=70x70&data=https://dsic.duckdns.org/mystock/"
+            alt="QR" width="70" height="70" style="display:block;" />
+        </div>
         <div class="card-header">
           <div class="card-icon">📈</div>
           <div>
@@ -579,7 +587,7 @@
           </div>
         </div>
         <p class="card-desc">
-          투자시 손실의 가장 큰 요인은 매도시점을 망설이기 때문<br>으로 매입가 기준이 아닌 **최근 고점 대비 하락률로<br> 매도 기준을설정하면 AI가 정확한 매도시점을 알려줍니다.
+          투자시 손실의 가장 큰 요인은 매도시점을 망설이기 때문.<br>최근 고점 대비 하락률로 매도 기준을 설정하면<br>AI가 정확한 매도시점을 알려줍니다.
         </p>
         <div class="card-tags">
           <span class="card-tag">Python</span>
@@ -588,10 +596,9 @@
           <span class="card-tag">Claude AI</span>
         </div>
         <div class="card-footer">
-          <span class="card-status"><span class="status-dot offline"></span><span
-              style="color:#94a3b8;">운영중(비공개)</span></span>
+          <span class="card-status"><span class="status-dot"></span><span style="color:#22c55e;">운영중</span></span>
           <span class="card-github"
-            onclick="event.stopPropagation();window.open('https://github.com/dsic777/myStodk','_blank');">🐙
+            onclick="event.stopPropagation();window.open('https://github.com/dsic777/MyStock','_blank');">🐙
             GitHub</span>
         </div>
       </div>
