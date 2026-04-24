@@ -27,60 +27,13 @@
     /* Hero Section */
     .hero {
       background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 50%, #0f172a 100%);
-      padding: 60px 20px 90px;
+      padding: 60px 20px 50px;
       text-align: center;
       border-bottom: 1px solid #1e3a5f;
       position: relative;
+      overflow: hidden;
     }
 
-    .scroll-hint {
-      position: absolute;
-      bottom: 16px;
-      left: 50%;
-      transform: translateX(-50%);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 6px;
-      opacity: 1;
-      transition: opacity 0.5s;
-      pointer-events: none;
-      white-space: nowrap;
-    }
-    .scroll-hint.hidden { opacity: 0; }
-    .scroll-hint-label {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-size: 1.3rem;
-      color: #64748b;
-      letter-spacing: 2px;
-      font-weight: 500;
-    }
-    .scroll-hint-label .arr {
-      color: #3b82f6;
-      font-size: 1.1rem;
-      animation: bounce 1.4s infinite;
-      display: inline-block;
-    }
-    .scroll-arrow {
-      width: 20px;
-      height: 20px;
-      border-right: 2px solid #3b82f6;
-      border-bottom: 2px solid #3b82f6;
-      transform: rotate(45deg);
-      animation: bounce 1.4s infinite;
-      margin-top: -4px;
-    }
-    @keyframes bounce {
-      0%, 100% { transform: translateY(0); opacity: 0.9; }
-      50% { transform: translateY(5px); opacity: 0.3; }
-    }
-    .scroll-arrow { animation-name: bounce-arrow; }
-    @keyframes bounce-arrow {
-      0%, 100% { transform: rotate(45deg) translateY(0); opacity: 0.9; }
-      50% { transform: rotate(45deg) translateY(4px); opacity: 0.3; }
-    }
 
     .hero::before {
       content: '';
@@ -160,7 +113,6 @@
 
     .contact-info {
       margin-top: 28px;
-      margin-bottom: 10px;
       padding-top: 24px;
       border-top: 1px solid rgba(255, 255, 255, 0.1);
     }
@@ -492,14 +444,6 @@
       <a href="mailto:dsic777@gmail.com" class="contact-link">✉ dsic777@gmail.com</a>
       <a href="https://github.com/dsic777" target="_blank" class="contact-link">🐙 github.com/dsic777</a>
     </div>
-    <div class="scroll-hint" id="scrollHint">
-      <div class="scroll-hint-label">
-        <span class="arr">↓</span>
-        Projects
-        <span class="arr">↓</span>
-      </div>
-      <div class="scroll-arrow"></div>
-    </div>
   </section>
 
   <!-- Skills -->
@@ -780,13 +724,6 @@
     © 2026 dsic777@gmail.com · Built with Python, Django, FastAPI, React, Docker
   </footer>
 
-<script>
-  const hint = document.getElementById('scrollHint');
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 60) hint.classList.add('hidden');
-    else hint.classList.remove('hidden');
-  }, { passive: true });
-</script>
 </body>
 
 </html>
