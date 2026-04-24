@@ -34,6 +34,38 @@
       overflow: hidden;
     }
 
+    .scroll-hint {
+      position: absolute;
+      bottom: 18px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+      opacity: 1;
+      transition: opacity 0.4s;
+      pointer-events: none;
+    }
+    .scroll-hint.hidden { opacity: 0; }
+    .scroll-hint span {
+      font-size: 1.15rem;
+      color: #64748b;
+      letter-spacing: 1px;
+    }
+    .scroll-arrow {
+      width: 24px;
+      height: 24px;
+      border-right: 2px solid #3b82f6;
+      border-bottom: 2px solid #3b82f6;
+      transform: rotate(45deg);
+      animation: bounce 1.4s infinite;
+    }
+    @keyframes bounce {
+      0%, 100% { transform: rotate(45deg) translateY(0); opacity: 1; }
+      50% { transform: rotate(45deg) translateY(5px); opacity: 0.4; }
+    }
+
     .hero::before {
       content: '';
       position: absolute;
@@ -443,6 +475,10 @@
       <a href="mailto:dsic777@gmail.com" class="contact-link">✉ dsic777@gmail.com</a>
       <a href="https://github.com/dsic777" target="_blank" class="contact-link">🐙 github.com/dsic777</a>
     </div>
+    <div class="scroll-hint" id="scrollHint">
+      <span>Projects ↓</span>
+      <div class="scroll-arrow"></div>
+    </div>
   </section>
 
   <!-- Skills -->
@@ -723,6 +759,13 @@
     © 2026 dsic777@gmail.com · Built with Python, Django, FastAPI, React, Docker
   </footer>
 
+<script>
+  const hint = document.getElementById('scrollHint');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 60) hint.classList.add('hidden');
+    else hint.classList.remove('hidden');
+  }, { passive: true });
+</script>
 </body>
 
 </html>
