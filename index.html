@@ -952,8 +952,37 @@
         </div>
       </div>
 
-      <!-- 19. 공란 -->
-      <div class="project-card" style="--accent:#475569; --icon-bg:rgba(71,85,105,0.15); cursor:default; opacity:0.2; min-height:100px;">
+      <!-- 19. BASystem -->
+      <div class="project-card" onclick="window.open('https://dspro.duckdns.org/basystem/mobile/','_blank')"
+        style="--accent:#22c55e; --icon-bg:rgba(34,197,94,0.15); cursor:pointer; position:relative;">
+        <div onclick="event.stopPropagation();"
+          style="position:absolute; top:14px; right:14px; background:#fff; border-radius:6px; padding:3px;">
+          <img
+            src="https://api.qrserver.com/v1/create-qr-code/?size=70x70&data=https://dspro.duckdns.org/basystem/mobile/"
+            alt="QR" width="70" height="70" style="display:block;" />
+        </div>
+        <div class="card-header">
+          <div class="card-icon">🎱</div>
+          <div>
+            <div class="card-title">BASystem</div>
+            <div class="card-type">당구 어시스턴트 - 모바일</div>
+          </div>
+        </div>
+        <p class="card-desc">
+          3쿠션 경로를 계산해 알려줍니다.<br>공식이 아니라 당구대 영상 130샷에서 직접 잰<br>쿠션 반사값으로 5쿠션까지 그립니다.
+        </p>
+        <div class="card-tags">
+          <span class="card-tag">Python</span>
+          <span class="card-tag">OpenCV</span>
+          <span class="card-tag">Claude AI</span>
+          <span class="card-tag">Mobile</span>
+        </div>
+        <div class="card-footer">
+          <span class="card-status"><span class="status-dot"></span><span style="color:#22c55e;">운영중</span></span>
+          <span class="card-github"
+            onclick="event.stopPropagation();window.open('https://github.com/dsic777/BASystem','_blank');">🐙
+            GitHub</span>
+        </div>
       </div>
 
       <!-- 20. 공란 -->
