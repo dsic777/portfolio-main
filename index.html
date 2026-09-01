@@ -985,8 +985,34 @@
         </div>
       </div>
 
-      <!-- 20. 공란 -->
-      <div class="project-card" style="--accent:#475569; --icon-bg:rgba(71,85,105,0.15); cursor:default; opacity:0.2; min-height:100px;">
+      <!-- 20. DSLINE -->
+      <div class="project-card" onclick="window.open('https://dspro.duckdns.org/dsline/','_blank')"
+        style="--accent:#eab308; --icon-bg:rgba(234,179,8,0.15); cursor:pointer; position:relative;">
+        <div onclick="event.stopPropagation();"
+          style="position:absolute; top:14px; right:14px; background:#fff; border-radius:6px; padding:3px;">
+          <img
+            src="https://api.qrserver.com/v1/create-qr-code/?size=70x70&data=https%3A%2F%2Fdspro.duckdns.org%2Fdsline%2F"
+            alt="QR" width="70" height="70" style="display:block;" />
+        </div>
+        <div class="card-header">
+          <div class="card-icon">💬</div>
+          <div>
+            <div class="card-title">DSLINE</div>
+            <div class="card-type">대화 통로 - 모바일</div>
+          </div>
+        </div>
+        <p class="card-desc">
+          밖에서 개발자와 바로 주고받는 대화창입니다.<br>오간 말이 그대로 남고 답이 그 자리에 붙습니다.<br>홈 화면 설치 가능.
+        </p>
+        <div class="card-tags">
+          <span class="card-tag">FastAPI</span>
+          <span class="card-tag">PostgreSQL</span>
+          <span class="card-tag">Claude AI</span>
+          <span class="card-tag">Mobile</span>
+        </div>
+        <div class="card-footer">
+          <span class="card-status"><span class="status-dot"></span><span style="color:#eab308;">운영중</span></span>
+        </div>
       </div>
 
     </div>
